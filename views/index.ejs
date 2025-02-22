@@ -12,23 +12,25 @@
     </style>
 </head>
 <body>
-    <h1>JSONFormatter</h1>
-    <form action="/format" method="POST">
-        <textarea name="jsonInput" placeholder="Paste your JSON here..."><%= input ? input : "" %></textarea><br>
-        <select name="tabspace" id="tabspace">
-            <option value=2>2 Tab Spaces</option>
-            <option value=4>4 Tab Spaces</option>
-          </select>
-        <button type="submit">Format JSON</button>
-    </form>
+    <h1>JSONFormatterForHoomans</h1>
+    <div>
+      <form action="/format" method="POST">
+          <textarea name="jsonInput" placeholder="Paste your JSON here..."><%= input ? input : "" %></textarea><br>
+          <select name="tabspace" id="tabspace">
+              <option value=2>2 Tab Spaces</option>
+              <option value=4 selected>4 Tab Spaces</option>
+            </select>
+          <button type="submit">Format JSON</button>
+      </form>
 
-    <% if (error) { %>
+      <% if (error) { %>
         <p class="error"><%= error %></p>
-    <% } %>
+      <% } %>
 
-    <% if (formattedJson) { %>
-        <h2>Formatted JSON:</h2>
-        <pre><%= formattedJson %></pre>
-    <% } %>
+      <% if (formattedJson) { %>
+          <h2>Formatted JSON:</h2>
+          <pre><%= formattedJson %></pre>
+      <% } %>
+    </div>
 </body>
 </html>
