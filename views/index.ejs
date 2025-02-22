@@ -13,8 +13,10 @@
 </head>
 <body>
     <h1>JSONFormatterForHoomans</h1>
-    <div>
+    <div id="commondiv">
+    <div id="Input">
       <form action="/format" method="POST">
+        <h2>Unformatted JSON to be pasted below hooman</h2>
           <textarea name="jsonInput" placeholder="Paste your JSON here..."><%= input ? input : "" %></textarea><br>
           <select name="tabspace" id="tabspace">
               <option value=2>2 Tab Spaces</option>
@@ -22,15 +24,14 @@
             </select>
           <button type="submit">Format JSON</button>
       </form>
-
+    </div>
+    <div id="Output">
       <% if (error) { %>
         <p class="error"><%= error %></p>
       <% } %>
-
-      <% if (formattedJson) { %>
-          <h2>Formatted JSON:</h2>
-          <pre><%= formattedJson %></pre>
-      <% } %>
+          <h2>Formatted JSON for hooman</h2>
+          <textarea name="jsonInput" placeholder="Paste your JSON here..."><%= formattedJson ? formattedJson : "" %></textarea><br>
+    </div>
     </div>
 </body>
 </html>
