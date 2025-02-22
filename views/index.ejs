@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONFormatter</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        textarea { width: 80%; height: 150px; margin-bottom: 10px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; text-align: left; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>JSONFormatter</h1>
+    <form action="/format" method="POST">
+        <textarea name="jsonInput" placeholder="Paste your JSON here..."><%= input ? input : "" %></textarea><br>
+        <select name="tabspace" id="tabspace">
+            <option value=2>2 Tab Spaces</option>
+            <option value=4>4 Tab Spaces</option>
+          </select>
+        <button type="submit">Format JSON</button>
+    </form>
+
+    <% if (error) { %>
+        <p class="error"><%= error %></p>
+    <% } %>
+
+    <% if (formattedJson) { %>
+        <h2>Formatted JSON:</h2>
+        <pre><%= formattedJson %></pre>
+    <% } %>
+</body>
+</html>
